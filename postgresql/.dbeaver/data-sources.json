@@ -1,0 +1,43 @@
+{
+	"folders": {},
+	"connections": {
+		"postgres-jdbc-17b47107ec6-208b065167cde6b9": {
+			"provider": "postgresql",
+			"driver": "postgres-jdbc",
+			"name": "testdb",
+			"save-password": true,
+			"read-only": false,
+			"configuration": {
+				"host": "192.168.10.135",
+				"port": "5432",
+				"database": "testdb",
+				"url": "jdbc:postgresql://192.168.10.135:5432/testdb",
+				"home": "postgresql_client",
+				"type": "dev",
+				"provider-properties": {
+					"@dbeaver-show-non-default-db@": "false",
+					"@dbeaver-show-template-db@": "false",
+					"@dbeaver-show-unavailable-db@": "false",
+					"show-database-statistics": "false",
+					"@dbeaver-read-all-data-types-db@": "false",
+					"@dbeaver-use-prepared-statements-db@": "false",
+					"postgresql.dd.plain.string": "false",
+					"postgresql.dd.tag.string": "false"
+				},
+				"auth-model": "native",
+				"handlers": {}
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"auto-close-transactions": false
+		}
+	}
+}

@@ -1,0 +1,45 @@
+;==============================================
+;; connect host or ip address
+HOST='192.168.xx.xx'
+;; port number (SSH:22)
+PORT='22'
+;; username
+USER='username'
+;; password
+PASS=''
+;; key file
+KEYFILE='id_rsa'
+;; path of setup file
+;; INIFILE='<path>\TERATERM.INI'
+;; title
+;;TITLE=''
+;==============================================
+
+;; 鍵ファイルパス生成
+getenv 'USERPROFILE' home
+sprintf2 keypath '%s\.ssh\%s' home KEYFILE
+
+;; 接続コマンド生成
+; sprintf2 cmd '%s:%d /ssh /2 /auth=password  /user=%s /passwd=%s'  HOST PORT USER PASS
+  sprintf2 cmd '%s:%d /ssh /2 /auth=publickey /user=%s /keyfile=%s' HOST PORT USER keypath
+
+;; 設定ファイル読み込み(任意)
+;; strconcat cmd ' /F='
+;; strconcat cmd INIFILE
+
+connect cmd
+wait '$' '%'
+
+; sendln 'exec su -'
+; wait 'Password:'
+; sendln 'DayBreak'
+; wait '$' '#'
+
+; sendln 'su - postgres'
+; wait '$' '#'
+
+
+; ifdefined TITLE
+; if result != 0 then
+;	settitle TITLE
+; endif
